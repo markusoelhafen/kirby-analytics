@@ -10,13 +10,7 @@
     m.parentNode.insertBefore(a, m)
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-if($cookieStorage === false) {
-    ga('create', '<?= $id ?>', {
-        'storage': 'none'
-    });
-} else {
-    ga('create', '<?php echo $id ?>', 'auto');
-}
+ga('create', '<?php echo $id ?>', <?php e($storage, '\'auto\'', '{\'storage\': \'none\'}'); ?>);
 
 ga('set', 'anonymizeIp', <?php e($anonymize, 'true', 'false') ?>);
 ga('send', 'pageview');

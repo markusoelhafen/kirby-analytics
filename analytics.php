@@ -13,14 +13,14 @@ function analytics() {
 
     $id = c::get('analytics.id');
     $anonymize = c::get('analytics.anonymize');
-    $cookieStorage = c::get('analytics.cookies');
+    $storage = c::get('analytics.storage');
 
     if (is_bool($anonymize) === false) {
         $anonymize = false;
     }
 
-    if (is_bool($cookieStorage) === false) {
-        $cookieStorage = 'none';
+    if (is_bool($storage) === false) {
+        $storage = true;
     }
     
     $ipAddress = r::ip();
@@ -28,7 +28,7 @@ function analytics() {
 
     if ($id === null || $localhost === true) return;
 
-    $templateData = compact('id', 'anonymize', 'cookieStorage');
+    $templateData = compact('id', 'anonymize', 'storage');
 
     return tpl::load(__DIR__ . DS . 'template.php', $templateData);
 }
