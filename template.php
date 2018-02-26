@@ -12,7 +12,7 @@
 
 if($cookieStorage === false) {
     ga('create', '<?= $id ?>', {
-        'storage', 'none'
+        'storage': 'none'
     });
 } else {
     ga('create', '<?php echo $id ?>', 'auto');
