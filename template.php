@@ -11,5 +11,7 @@
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 ga('create', '<?php echo $id ?>', 'auto');
 ga('set', 'anonymizeIp', <?php e($anonymize, 'true', 'false') ?>);
-ga('create', '<?php echo $id ?>', 'storage', <?php e($cookieStorage, 'true', 'false') ?>);
+ga('create', '<?php echo $id ?>', {
+    'storage', <?php e($cookieStorage, 'true', 'false'); ?>
+});
 ga('send', 'pageview');
